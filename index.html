@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ede8ff">
+  <meta name="description" content="GObet sports markets. Balances are virtual and cannot be deposited or withdrawn.">
+  <title>GObet | Sports, played smarter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=20261019-3">
+  <script src="/app.js?v=20261019-3" defer></script>
+</head>
+<body>
+  <main id="auth-view" class="auth-view">
+    <section class="auth-story" aria-label="GObet">
+      <a class="brand brand-large" href="/" aria-label="GObet home"><span class="brand-mark">G</span><span>GO<span class="brand-light">bet</span></span></a>
+      <div class="story-content">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> THE MATCHDAY STARTS HERE</p>
+        <h1>Every game<br>has a <span>moment.</span></h1>
+        <p class="story-copy">Pick a side. Build a ticket. Enjoy the game.</p>
+        <div class="story-match" aria-label="Sample football fixture">
+          <div class="story-match-top"><span>FEATURED FIXTURE</span><span class="sample-tag">SAMPLE ODDS</span></div>
+          <div class="story-teams"><span class="team-initial">AFC</span><span>Arsenal <small>vs</small> Liverpool</span><span class="team-initial team-initial-dark">LIV</span></div>
+          <div class="story-match-bottom"><span>Premier League</span><span>19:45</span></div>
+        </div>
+      </div>
+      <p class="auth-footnote">Virtual balances only. No cash deposits or payouts.</p>
+    </section>
+    <section class="auth-side">
+      <div class="auth-card">
+        <div class="auth-mobile-brand brand"><span class="brand-mark">G</span><span>GO<span class="brand-light">bet</span></span></div>
+        <div class="auth-heading"><p class="eyebrow" id="auth-eyebrow">WELCOME BACK</p><h2 id="auth-title">Good to see you.</h2><p id="auth-subtitle">Sign in to get back to the action.</p></div>
+        <form id="login-form" class="auth-form">
+          <label for="login-username">Username</label><input id="login-username" name="username" autocomplete="username" placeholder="Your username" required>
+          <label for="login-password">Password</label><input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Your password" required>
+          <button class="button button-primary auth-submit" type="submit">Sign in <span aria-hidden="true">&#8594;</span></button>
+        </form>
+        <p class="account-source-note">Accounts are issued by the site administrator.</p>
+        <p class="auth-error" id="auth-error" role="alert"></p>
+        <div class="account-notice"><span class="notice-mark">i</span><p><strong>Secure sign-in</strong><br>Virtual balances only. No cash transactions.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="app-view" class="app-view hidden">
+    <aside class="sidebar">
+      <a class="brand sidebar-brand" href="#markets" data-home aria-label="GObet home"><span class="brand-mark">G</span><span>GO<span class="brand-light">bet</span></span></a>
+      <p class="side-label">MENU</p>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="markets"><span class="nav-icon">&#9678;</span>Sports<span class="nav-count" id="sports-count">05</span></button>
+        <button class="nav-item" data-view="tickets"><span class="nav-icon">&#9776;</span>My tickets</button>
+        <button class="nav-item hidden" id="account-nav" data-view="account"><span class="nav-icon">&#9786;</span>My account</button>
+        <button class="nav-item hidden" id="admin-nav" data-view="admin"><span class="nav-icon">&#9638;</span>Admin</button>
+      </nav>
+      <p class="side-label sports-label">SPORTS</p>
+      <nav id="sport-nav" class="sport-nav" aria-label="Filter by sport"></nav>
+      <div class="sidebar-bottom"><span class="sidebar-live-dot"></span><span>VIRTUAL CREDITS</span><small>No cash deposits or payouts</small></div>
+    </aside>
+    <button id="sidebar-backdrop" class="sidebar-backdrop" type="button" aria-label="Close navigation"></button>
+
+    <section class="workspace">
+      <header class="topbar">
+        <button id="mobile-menu" class="icon-button mobile-menu" type="button" aria-label="Open menu">&#9776;</button>
+        <div class="breadcrumb"><span>SPORTS</span><span class="breadcrumb-slash">/</span><strong id="breadcrumb-current">Football</strong></div>
+        <div class="topbar-actions">
+          <button id="slip-toggle" class="slip-toggle" type="button" aria-label="Open bet slip"><span class="slip-toggle-label">Slip</span><span id="header-slip-count">0</span><strong id="header-slip-odds">&#8212;</strong></button>
+          <div class="wallet"><span class="wallet-label">VIRTUAL BALANCE</span><strong id="header-balance">€0.00</strong></div>
+          <button id="account-menu" class="account-button" type="button" aria-label="Account menu"><span class="avatar" id="account-avatar">P</span><span class="account-name" id="account-name">Player</span><span class="chevron">&#8964;</span></button>
+          <button id="logout-button" class="icon-button logout-button" type="button" aria-label="Sign out" title="Sign out">&#8594;</button>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <section id="markets-view" class="content-view">
+          <div class="page-intro"><div><p class="eyebrow">YOUR DAILY FIXTURE</p><h1 id="page-title">Football <span>markets</span></h1><p class="page-subtitle">Sample odds and virtual balances only. No cash deposits or payouts.</p></div><div class="today-pill"><span class="calendar-icon">&#9635;</span><span>UPCOMING<br><strong>SAMPLE FIXTURES</strong></span></div></div>
+          <div class="market-toolbar"><div class="filter-tabs" role="tablist" aria-label="Fixture filter"><button class="filter-tab active" data-filter="All" type="button">All matches</button><button class="filter-tab" data-filter="Football" type="button">Football</button><button class="filter-tab" data-filter="Other" type="button">Other sports</button></div><span class="market-count" id="market-count">0 FIXTURES</span></div>
+          <div id="event-list" class="event-list" aria-live="polite"></div>
+        </section>
+        <section id="tickets-view" class="content-view hidden"><div class="page-intro compact-intro"><div><p class="eyebrow">YOUR ACTIVITY</p><h1>My <span>tickets</span></h1><p class="page-subtitle">A record of your simulated wagers.</p></div></div><div id="ticket-history" class="ticket-history"></div></section>
+        <section id="admin-view" class="content-view hidden">
+          <div class="page-intro compact-intro"><div><p class="eyebrow">ACCOUNT MANAGEMENT</p><h1>Admin <span>desk</span></h1><p class="page-subtitle">Manage accounts and adjust virtual credits.</p></div><span class="admin-badge">SOLE ADMIN: ZERO5</span></div>
+          <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>USER</th><th>ROLE</th><th>BALANCE</th><th>TICKETS</th><th>ADJUST CREDITS</th><th>RESET PASSWORD</th></tr></thead><tbody id="admin-users"></tbody></table></div>
+          <p class="admin-note">Accounts and tickets are saved on this server. No payment processing is connected.</p>
+          <section class="admin-history-section"><div class="admin-section-heading"><div><p class="eyebrow">ALL ACCOUNTS</p><h2>Player tickets</h2></div><span id="admin-bet-count" class="market-count">0 TICKETS</span></div>
+            <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>PLAYER</th><th>PLACED</th><th>MATCHES / SELECTIONS</th><th>STAKE</th><th>ODDS</th><th>RETURN</th><th>STATUS</th></tr></thead><tbody id="admin-bets"></tbody></table></div>
+          </section>
+          <section class="admin-history-section"><div class="admin-section-heading"><div><p class="eyebrow">VIRTUAL CREDITS</p><h2>Transaction history</h2></div><span id="admin-transaction-count" class="market-count">0 ENTRIES</span></div>
+            <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>WHEN</th><th>TYPE</th><th>ACCOUNT</th><th>AMOUNT</th><th>BALANCE CHANGE</th><th>BY</th><th>REFERENCE</th></tr></thead><tbody id="admin-transactions"></tbody></table></div>
+          </section>
+          <section class="admin-history-section"><div class="admin-section-heading"><div><p class="eyebrow">AUDIT TRAIL</p><h2>Account activity</h2></div><span id="admin-activity-count" class="market-count">0 EVENTS</span></div>
+            <div class="admin-table-wrap"><table class="admin-table"><thead><tr><th>WHEN</th><th>ACTOR</th><th>ACTION</th><th>TARGET</th><th>DETAILS</th></tr></thead><tbody id="admin-activity"></tbody></table></div>
+          </section>
+          <section class="account-form-section"><div><p class="eyebrow">NEW ACCOUNT</p><h2>Create a user account</h2><p>Set an initial password and share it securely with the account owner.</p></div>
+            <form id="admin-create-form" class="account-form">
+              <label for="admin-create-name">Display name</label><input id="admin-create-name" name="display_name" autocomplete="off" placeholder="Full name" required minlength="2" maxlength="30">
+              <label for="admin-create-username">Username</label><input id="admin-create-username" name="username" autocomplete="off" placeholder="3-20 letters, numbers or _" required minlength="3" maxlength="20">
+              <label for="admin-create-password">Initial password (8+ characters)</label><input id="admin-create-password" name="password" type="password" autocomplete="new-password" placeholder="Choose an initial password" required minlength="8">
+              <label for="admin-create-currency">Currency</label><select id="admin-create-currency" name="currency"><option value="EUR">Euro (EUR)</option><option value="ALL">Albanian lek (ALL)</option></select>
+              <label class="check-label"><input name="age_confirmed" type="checkbox" required><span>I confirm the account owner meets the legal age requirement where they live.</span></label>
+              <button class="button button-primary" type="submit">Create user account <span aria-hidden="true">&#8594;</span></button>
+            </form>
+          </section>
+        </section>
+        <section id="account-view" class="content-view hidden">
+          <div class="page-intro compact-intro"><div><p class="eyebrow">ACCOUNT SECURITY</p><h1>My <span>account</span></h1><p class="page-subtitle">Change the password for <strong id="account-username"></strong>.</p></div></div>
+          <section class="account-form-section password-section"><div><p class="eyebrow">PASSWORD</p><h2>Choose a new password</h2><p>Use at least 8 characters. Longer passwords are safer.</p></div>
+            <form id="password-form" class="account-form">
+              <label for="current-password">Current password</label><input id="current-password" name="current_password" type="password" autocomplete="current-password" required>
+              <label for="new-password">New password</label><input id="new-password" name="new_password" type="password" autocomplete="new-password" minlength="8" required>
+              <label for="confirm-password">Confirm new password</label><input id="confirm-password" name="confirm_password" type="password" autocomplete="new-password" minlength="8" required>
+              <button class="button button-primary" type="submit">Change password <span aria-hidden="true">&#8594;</span></button>
+              <p class="form-message" id="password-message" role="status"></p>
+            </form>
+          </section>
+        </section>
+      </div>
+    </section>
+
+    <aside class="slip-panel" id="slip-panel">
+      <div class="slip-heading"><div><p class="eyebrow">YOUR BET BUILDER</p><h2>Bet slip <span id="slip-count" class="slip-count">0</span></h2></div><div class="slip-heading-actions"><button id="clear-slip" class="text-button clear-button" type="button">Clear</button><button id="close-slip" class="icon-button close-slip" type="button" aria-label="Close bet slip">&times;</button></div></div>
+      <div class="slip-tabs"><span class="slip-tab active">Single / combo</span><span class="sample-tag">SAMPLE ODDS</span></div>
+      <div id="slip-selections" class="slip-selections"><div class="slip-empty"><span class="empty-mark">+</span><strong>Your slip is empty</strong><p>Choose an outcome from any match to add it here.</p></div></div>
+      <form id="slip-form" class="slip-footer">
+        <label for="stake-input">Stake <span id="stake-currency">EUR</span></label><div class="stake-field"><input id="stake-input" type="number" min="0.01" step="0.01" placeholder="0.00" inputmode="decimal"><button type="button" class="stake-max" id="max-stake">MAX</button></div>
+        <div class="slip-summary"><span>Combined odds</span><strong id="combined-odds">—</strong></div>
+        <div class="slip-summary return-summary"><span>Potential return</span><strong id="potential-return">—</strong></div>
+        <button class="button button-primary place-bet-button" type="submit" disabled>Place virtual wager <span aria-hidden="true">&#8594;</span></button>
+        <p class="slip-disclaimer">Virtual credits only. No cash deposits or payouts.</p>
+      </form>
+    </aside>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
